@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load main_tags %}
+
+
+{% block title %}
+Todos
+{% endblock %}
+
+{% block content %}
+{% get_categories as categories %}
+<div class="my-5 row">
+    <div class="col-3">
+        <h4>Tasks to do</h4>
+        <ul class="list-group list-group-action mb-3">
+            {% for category in categories %}
+            <li class="list-group-item list-group-item-action">
+                <a href="{% url 'todos-category' category.slug %}">{{category}}</a></li>
+            {% endfor %}
+        </ul>
+        <h4>Tasks to sort</h4>
+        <ul class="list-group list-group-action">
+            <li class="list-group-item list-group-item-action"><a href="">По названию</a></li>
+            <li class="list-group-item list-group-item-action"><a href="">По дате</a></li>
+        </ul>
+    </div>
+    <div class="col-9">
+        <div class="col-9">
+            <div class="row row-gap-3 mb-5">
+                {% for todo in todos %}
+                <div class="col-4">
+                    {% include 'components/todos_card.html' %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+        {% endblock %}

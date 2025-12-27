@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ todo.title }}</h5>
+        <p class="card-text">{{todo.short_description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <b> Заголовок </b> {{ todo.category.title }}
+        </li>
+        <li class="list-group-item">
+             <b> Автор </b> {{ todo.author }}
+        </li>
+        <li class="list-group-item">
+             <b> Дата </b> {{ todo.created_at }}
+    </ul>
+    <div class="card-body">
+        <a href="{% url 'todo-detail' todo.slug %}" class="card-link">Подробнее</a>
+        <a href="#" class="card-link">Пожаловаться</a>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ todo.text }}
+<div class="row mt-4">
+    <div class="col-6"></div>
+    <div class="col-6">
+        <h1 class="text-center mb-4">
+            {{todo.text}}
+        </h1>
+        <ul class="list-group list-group-action">
+            <li class="list-group-item list-group-item action">
+                <b>Категория:</b>{{ todo.category.title }}
+            </li>
+            <li class="list-group-item list-group-item action">
+                <b>Автор:</b>{{ todo.author.username|title }}
+            </li>
+            <li class="list-group-item list-group-item action">
+                <b>Дата:</b>{{ todo.created_at }}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="mt-4">
+    <h2 class="text-center mb-4">
+        Полное описание</h2>
+    <i>{{todo.full_description}}</i>
+</div>
+<div class="mt-4">
+    <h2 class="text-center mb-4">Комментарии</h2>
+    <div class="row">
+        <div class="col-6"></div>
+    </div>
+    <form action="" class="mt-4"><label for=""></label><textarea name="" id="" cols="30" rows="10"
+                                                                    class="form-control"></textarea>
+        <button class="btn btn-dark mt-4"></button>
+    </form>
+</div>
+{% endblock %}
